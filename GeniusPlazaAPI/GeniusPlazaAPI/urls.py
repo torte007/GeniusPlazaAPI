@@ -16,6 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
+
+
+"""You need to create API’s to create a new recipe, get recipes by particular user, get all the
+recipes , update a recipe, delete a particular recipe"""
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
