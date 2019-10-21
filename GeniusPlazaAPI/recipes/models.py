@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    username = models.CharField(max_length=100, null=False, blank=False, unique=False)
+    username = models.CharField(max_length=100, null=False, blank=False, unique=True)
 
 class Recipe(models.Model): 
     """A Recipe must have: a name(string, not null), a user(one to one relationship), some ingredients, and some steps."""

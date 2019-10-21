@@ -2,5 +2,9 @@
 from __future__ import unicode_literals
 
 from django.test import TestCase
+from .models import User
 
-# Create your tests here.
+class Test_User(TestCase): 
+    def test_str(self): 
+        user = User(username='toms', email='tomasvortegar@gmail.com')
+        self.assertEqual(str(user), 'toms')
