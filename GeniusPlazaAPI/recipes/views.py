@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse, Http404
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from django.http import Http404
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
@@ -55,6 +52,7 @@ class RecipeDetail(APIView):
 
     def delete(self, request, user_id, format=None): 
         recipe = self.get_object(user_id); 
+        print("deleting the recipe", recipe)
         recipe.delete() 
         return Response(status=status.HTTP_204_NO_CONTENT)
 

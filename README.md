@@ -6,12 +6,25 @@ This project contains my API design for the Genius Plaza Test. The GeniusPlaza p
 
 The current API implements the following methods: 
 
--: create a new recipe. 
--: get recipes by a particular user. 
--: get all recipes available in the database. 
--: update a particular recipe. 
--: delete a particular recipe. 
+- ## Get all recipes available in the database. 
+    * Use ` GET http://localhost:8000/recipes/` and include the necessary information for a new recipe in json. 
+
+- ## Create a new recipe. 
+    * Use ` POST http://localhost:8000/recipes/` and include the necessary information for a new recipe in json. 
+
+- ## Get recipes by a particular user. 
+    * Use ` GET http://localhost:8000/recipes/user/<user_id>` and include the necessary information for a new recipe in json. 
+
+- ## Update a particular recipe. 
+    * Use ` PUT http://localhost:8000/recipes/<recipe_id>` and include the necessary information for a new recipe in json. 
+
+- ## Delete a particular recipe. 
+    * Use ` DELETE http://localhost:8000/recipes/<recipe_id>` and include the necessary information for a new recipe in json. 
 
 # Input Validation
 
-The only fields that are validated are the usernames and the email
+Input validation is done by djangorestframework
+
+# Requirements and Dependencies
+
+use  `pip install -r requirements.txt`

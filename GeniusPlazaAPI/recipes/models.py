@@ -10,7 +10,7 @@ class Recipe(models.Model):
     """A Recipe must have: a name(string, not null), a user(one to one relationship), some ingredients, and some steps."""
     name = models.CharField(max_length=150, null=False)
     # Consider changing to one to many so that each user can have more than one recipe. 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='recipes')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
 
     def __str__(self): 
         return self.name
