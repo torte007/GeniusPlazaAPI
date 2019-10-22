@@ -9,12 +9,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username', 'first_name', 'last_name')
 
 
-class RecipeSerializer(serializers.ModelSerializer):
-    class Meta: 
-        model = Recipe
-        fields = ('id', 'name', 'user', 'steps', 'ingredients')
-
-
 class StepSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Step
@@ -25,3 +19,13 @@ class IngredientSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Ingredient
         fields = ('id', 'text')
+
+
+class RecipeSerializer(serializers.ModelSerializer):
+    ingredients = serializers.ListSerializer(child=IngredientSerializer())
+    steps = serializers.ListSerializer(child=StepSerializer())
+    class Meta: 
+        model = Recipe
+        fields = ('id', 'name', 'user', 'ingredients', 'steps')
+
+
